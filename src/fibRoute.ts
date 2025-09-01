@@ -4,10 +4,10 @@ import { Request, Response } from "express";
 import fibonacci from "./fib";
 
 export default (req: Request, res: Response): void => {
-  const { num } = req.params;
+  const num: string = req.params.num as string;
 
-  const fibN = fibonacci(parseInt(num));
-  let result = `fibonacci(${num}) is ${fibN}`;
+  const fibN: number = fibonacci(parseInt(num, 10));
+  let result: string = `fibonacci(${num}) is ${fibN}`;
 
   if (fibN < 0) {
     result = `fibonacci(${num}) is undefined`;
